@@ -13,18 +13,18 @@
   "types": "./dist/types/src/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/types/src/index.d.ts",
       "import": "./dist/flowdash-search.js",
       "require": "./dist/flowdash-search.umd.cjs"
     },
-    "./style.css": "./dist/style.css"
+    "./style.css": { "types": "./dist/style.d.ts", "default": "./dist/style.css" }
   },
   "sideEffects": [
     "*.css"
   ],
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist/types && node scripts/fix-types.mjs",
+    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist/types -p tsconfig.build.json && node scripts/fix-types.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
     "preview": "vite preview"
