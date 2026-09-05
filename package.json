@@ -1,0 +1,47 @@
+{
+  "name": "flowdash-search",
+  "version": "0.1.0",
+  "description": "A calm, accessible Vue 3 search area for start pages and desktop-like home screens.",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "main": "./dist/flowdash-search.umd.cjs",
+  "module": "./dist/flowdash-search.js",
+  "types": "./dist/types/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/flowdash-search.js",
+      "require": "./dist/flowdash-search.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist/types && node scripts/fix-types.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.4.1",
+    "@vitejs/plugin-vue": "latest",
+    "@vue/test-utils": "latest",
+    "jsdom": "latest",
+    "typescript": "^5.7.2",
+    "vite": "^8.2.2",
+    "vitest": "^5.0.0",
+    "vue": "latest",
+    "vue-tsc": "latest"
+  }
+}
+
