@@ -27,7 +27,8 @@
     "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist/types -p tsconfig.build.json && node scripts/fix-types.mjs",
     "test": "vitest run",
     "test:watch": "vitest",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prepack": "npm run build"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
